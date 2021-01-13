@@ -26,8 +26,8 @@ import com.root101.module.control.licence.core.domain.*;
  */
 public interface LicenceRepo extends CRUDRepository<LicenceDomain> {
 
-    public LicenceDomain read() throws Exception;
+    public LicenceDomain read() throws RuntimeException;
 
-    public void write(LicenceDomain licence) throws Exception;
+    public void write(LicenceDomain licence) throws RuntimeException;
 
 }
