@@ -45,7 +45,7 @@ public class LicenceRESTService extends RESTServiceTemplate<LicenceDomain> imple
 
     @Override
     @PostMapping(LICENCE_ACTIVE_PATH)
-    public void activate(String codeCypher) throws Exception {
+    public void activate(String codeCypher) throws RuntimeException {
         licenceUC.activate(codeCypher);
     }
 
@@ -56,12 +56,12 @@ public class LicenceRESTService extends RESTServiceTemplate<LicenceDomain> imple
     }
 
     @Override
-    public LicenceDomain read() throws Exception {
+    public LicenceDomain read() throws RuntimeException {
         return licenceUC.read();
     }
 
     @Override
-    public void write(LicenceDomain licence) throws Exception {
+    public void write(LicenceDomain licence) throws RuntimeException {
         licenceUC.write(licence);
     }
 

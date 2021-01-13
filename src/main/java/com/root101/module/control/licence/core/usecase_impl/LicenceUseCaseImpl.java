@@ -112,10 +112,10 @@ public class LicenceUseCaseImpl extends DefaultCRUDUseCase<LicenceDomain> implem
      * en memoria, sino lanza excepcion.
      *
      * @param actvationCode codigo de activacion cifrado
-     * @throws Exception si hay algun problema en la activacion
+     * @throws RuntimeException si hay algun problema en la activacion
      */
     @Override
-    public void activate(String actvationCode) throws Exception {
+    public void activate(String actvationCode) throws RuntimeException {
         LicenceDomain domain = LicenceDomainSimpleConverter.getInstance().from(actvationCode);
         if (!domain.checkIntegrity()) {
             throw new NullPointerException("Error activando el programa.");
@@ -124,12 +124,12 @@ public class LicenceUseCaseImpl extends DefaultCRUDUseCase<LicenceDomain> implem
     }
 
     @Override
-    public LicenceDomain read() throws Exception {
+    public LicenceDomain read() throws RuntimeException {
         return repo.read();
     }
 
     @Override
-    public void write(LicenceDomain licence) throws Exception {
+    public void write(LicenceDomain licence) throws RuntimeException {
         repo.write(licence);
     }
 }

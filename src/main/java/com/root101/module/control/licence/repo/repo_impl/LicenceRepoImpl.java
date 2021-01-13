@@ -35,12 +35,12 @@ public class LicenceRepoImpl extends JPACleanCRUDRepo<LicenceDomain, Licence> im
     }
 
     @Override
-    public LicenceDomain read() throws Exception {
+    public LicenceDomain read() {
         return findAll().get(0);
     }
 
     @Override
-    public void write(LicenceDomain licence) throws Exception {
+    public void write(LicenceDomain licence) {
         if (count() == 0) {
             create(licence);
         } else {
