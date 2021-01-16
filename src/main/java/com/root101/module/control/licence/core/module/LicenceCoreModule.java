@@ -23,7 +23,7 @@ import com.google.inject.Injector;
 import com.root101.clean.core.domain.services.ResourceHandler;
 import com.root101.clean.core.exceptions.AlreadyInitModule;
 import com.root101.clean.core.exceptions.NotInitModule;
-import com.root101.module.control.licence.services.ResourceKeys;
+import com.root101.module.control.licence.services.ResourceKeysServer;
 
 /**
  *
@@ -38,14 +38,14 @@ public class LicenceCoreModule extends DefaultAbstractModule {
 
     public static LicenceCoreModule getInstance() {
         if (INSTANCE == null) {
-            throw new NotInitModule(ResourceHandler.getString(ResourceKeys.KEY_MODULE_NAME_LICENCE));
+            throw new NotInitModule(ResourceHandler.getString(ResourceKeysServer.KEY_MODULE_NAME_LICENCE));
         }
         return INSTANCE;
     }
 
     public static LicenceCoreModule init(AbstractModule repoModule) {
         if (INSTANCE != null) {
-            throw new AlreadyInitModule(ResourceHandler.getString(ResourceKeys.KEY_MODULE_NAME_LICENCE));
+            throw new AlreadyInitModule(ResourceHandler.getString(ResourceKeysServer.KEY_MODULE_NAME_LICENCE));
         }
         INSTANCE = new LicenceCoreModule();
         INSTANCE.registerModule(repoModule);

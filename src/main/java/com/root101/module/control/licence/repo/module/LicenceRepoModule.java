@@ -23,7 +23,7 @@ import com.root101.clean.core.domain.services.ResourceHandler;
 import com.root101.clean.core.exceptions.AlreadyInitModule;
 import com.root101.clean.core.exceptions.NotInitModule;
 import com.root101.module.control.licence.repo.utils.ResourcesLicence;
-import com.root101.module.control.licence.services.ResourceKeys;
+import com.root101.module.control.licence.services.ResourceKeysServer;
 
 /**
  *
@@ -45,14 +45,14 @@ public class LicenceRepoModule extends DefaultAbstractModule {
 
     public static LicenceRepoModule getInstance() {
         if (INSTANCE == null) {
-            throw new NotInitModule(ResourceHandler.getString(ResourceKeys.KEY_MODULE_NAME_LICENCE));
+            throw new NotInitModule(ResourceHandler.getString(ResourceKeysServer.KEY_MODULE_NAME_LICENCE));
         }
         return INSTANCE;
     }
 
     public static LicenceRepoModule init() {
         if (INSTANCE != null) {
-            throw new AlreadyInitModule(ResourceHandler.getString(ResourceKeys.KEY_MODULE_NAME_LICENCE));
+            throw new AlreadyInitModule(ResourceHandler.getString(ResourceKeysServer.KEY_MODULE_NAME_LICENCE));
         }
         INSTANCE = new LicenceRepoModule();
         return getInstance();

@@ -19,7 +19,7 @@ package com.root101.module.control.licence.core.injection;
 import com.root101.clean.core.app.services.LicenceHandler;
 import com.root101.clean.core.domain.services.ResourceHandler;
 import com.root101.module.control.licence.core.exception.BadLicenceException;
-import com.root101.module.control.licence.services.ResourceKeys;
+import com.root101.module.control.licence.services.ResourceKeysServer;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
@@ -40,7 +40,7 @@ public class LicenceInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         if (!LicenceHandler.isActive()) {
-            throw new BadLicenceException(ResourceHandler.getString(ResourceKeys.MSG_BAD_LICENCE));
+            throw new BadLicenceException(ResourceHandler.getString(ResourceKeysServer.MSG_BAD_LICENCE));
         }
         return invocation.proceed();
     }

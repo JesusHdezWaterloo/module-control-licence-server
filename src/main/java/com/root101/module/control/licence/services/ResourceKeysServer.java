@@ -21,7 +21,9 @@ package com.root101.module.control.licence.services;
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public class ResourceKeys {
+public class ResourceKeysServer {
+
+    public static final String RESOURCE_URL = "module_licence_server";
 
     public static final String MSG_BAD_LICENCE = "msg.licence.bad_licence";
 

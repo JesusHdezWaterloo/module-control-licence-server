@@ -16,12 +16,13 @@
  */
 package com.root101.module.control.licence.rest;
 
+import com.root101.clean.core.domain.services.ResourceHandler;
 import com.root101.module.control.licence.core.module.LicenceCoreModule;
 import com.root101.module.control.licence.core.usecase_def.LicenceUseCase;
 import com.root101.module.control.licence.repo.module.LicenceRepoModule;
-import com.root101.module.control.licence.services.LicenceResourceService;
-import com.root101.module.control.licence.services.LicenceResourceServiceServerImplementation;
 import com.root101.module.control.licence.services.LicenceServiceImpl;
+import com.root101.module.control.licence.services.ResourceKeysServer;
+import com.root101.module.control.licence.services.ResourceKeysStandard;
 import org.springframework.stereotype.Component;
 
 /**
@@ -38,8 +39,9 @@ public class A_ModuleUtilLicenceRESTConfig {
 
     static {
         LicenceServiceImpl.init();
-        LicenceResourceServiceServerImplementation.init();
-        LicenceResourceService.init();
+
+        ResourceHandler.registerInternal(ResourceKeysStandard.RESOURCE_URL);
+        ResourceHandler.registerInternal(ResourceKeysServer.RESOURCE_URL);
 
         LicenceCoreModule.init(LicenceRepoModule.init());
 
