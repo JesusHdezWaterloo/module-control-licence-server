@@ -38,8 +38,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author JesusHdezWaterloo@Github
  */
 @Entity
-@Table(name = "licence", schema = ResourcesLicence.SCHEMA, uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"client_code"})})
+@Table(name = "licence", catalog = ResourcesLicence.SCHEMA_CATALOG,
+        schema = ResourcesLicence.SCHEMA_CATALOG,
+        uniqueConstraints = {
+            @UniqueConstraint(columnNames = {"client_code"})})
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Licence.findAll", query = "SELECT l FROM Licence l"),

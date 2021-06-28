@@ -20,7 +20,7 @@ import com.root101.module.control.licence.core.domain.LicenceDomain;
 import com.root101.module.control.licence.core.domain.LicenceDomainSimpleConverter;
 import com.root101.module.control.licence.generator.GENERATOR;
 import com.root101.module.control.licence.rest.A_ModuleUtilLicenceRESTConfig;
-import com.root101.utils.services.ConverterService;
+import com.root101.clean.core.app.services.ConverterHandler;
 import java.time.LocalDate;
 
 /**
@@ -58,10 +58,10 @@ public class Main {
 
     private static void convert() throws Exception {
         LicenceDomain l = new LicenceDomain(7489, LocalDate.now(), LocalDate.now().plusDays(50));
-        String toString = ConverterService.convert(l, String.class);
+        String toString = ConverterHandler.convert(l, String.class);
         System.out.println(toString);
 
-        LicenceDomain l2 = ConverterService.convert(toString, LicenceDomain.class);
+        LicenceDomain l2 = ConverterHandler.convert(toString, LicenceDomain.class);
         System.out.println(l2);
     }
 }

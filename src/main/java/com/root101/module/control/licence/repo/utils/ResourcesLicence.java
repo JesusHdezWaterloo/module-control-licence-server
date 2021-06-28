@@ -27,13 +27,13 @@ import javax.persistence.Persistence;
  */
 public class ResourcesLicence {
 
-    public static final String SCHEMA = "root101_control_licence";
+    public static final String SCHEMA_CATALOG = "root101_control_licence";
 
     public static EntityManagerFactory EMF;
 
     public static void initEMF() {
         try {
-            EMF = Persistence.createEntityManagerFactory("LicencePU", MySQLHandler.propertiesMap(SCHEMA));
+            EMF = Persistence.createEntityManagerFactory("LicencePU", MySQLHandler.propertiesMap(SCHEMA_CATALOG));
         } catch (Exception e) {
             e.printStackTrace();
         }
