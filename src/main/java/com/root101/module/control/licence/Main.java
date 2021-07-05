@@ -21,7 +21,9 @@ import com.root101.module.control.licence.core.domain.LicenceDomainSimpleConvert
 import com.root101.module.control.licence.generator.GENERATOR;
 import com.root101.module.control.licence.rest.A_ModuleUtilLicenceRESTConfig;
 import com.root101.clean.core.app.services.ConverterHandler;
+import com.root101.spring.client.RestTemplateUtils;
 import java.time.LocalDate;
+import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -37,6 +39,12 @@ public class Main {
         //create();
         //read();
         //convert();
+        consume();
+    }
+
+    private static void consume() throws Exception {
+        RestTemplate rt = new RestTemplate();
+        System.out.println(rt.getForObject("http://localhost:8080/licence/licence/is_active", Boolean.class));
     }
 
     private static void create() throws Exception {
