@@ -23,7 +23,7 @@ package com.root101.module.control.licence.services;
  */
 public class ResourceKeysServer {
 
-    public static final String RESOURCE_URL = "module_licence_server";
+    public static final String RESOURCE_URL = "module_licence";
 
     public static final String MSG_BAD_LICENCE = "msg.licence.bad_licence";
 
